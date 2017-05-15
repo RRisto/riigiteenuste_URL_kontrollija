@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(httr)\nlibrary(riigiteenused)\nlibrary(dplyr)\n\nandmedLai=andmedSisse()\nandmedPikk=andmedPikaks(andmedLai)\n\n#kontrollib urle üskhaaval\nurliKontorllija=function(urlid) {\n  idx <- 1\n  vastused<-sapply(urlid, function(x) \n  {cat(\"working on url nr\",idx, \"\\n\"); idx<<-idx+1;\n  tryCatch( http_status(GET(x))$category, \n            error=function(e) 'error')}) %>% as.data.frame\n  vastused$url=urlid\n  colnames(vastused)[1]=\"response\"\n\n  return(vastused)\n}\n\n#kontrolli unikaalseid urle ja siis jagab tulemused algsete peale laiali\n#selleks, et töötaks, peab olema veerg, kus urlid on nimeks url\nefektiivneUrliKontrollija=function(andmed){\n  unikUrlid=unique(andmed$url)\n  unikTulemused=urliKontorllija(unikUrlid)\n  tulem=merge(andmed, unikTulemused, by.x=\"url\", by.y=\"url\", all=T)\n  tulem$algne=NULL\n  return(tulem)\n}\n\nurlid=efektiivneUrliKontrollija(andmedLai)\nerroritega=urlid[grep('error', urlid$response),]\n\n#sama asi õigusaktidega\nseadused=setNames(andmedLai$legalBasisUrl, andmedLai$identifier)\nseadused <- mapply(`[<-`, seadused, 'service_id', value = names(seadused), SIMPLIFY = FALSE)\noigusaktid=dplyr::rbind_all(seadused)\n\noigusaktid_urlid=efektiivneUrliKontrollija(oigusaktid)\ncols=c(\"identifier\", \"name\", \"provider.name\", \"provider.memberOf.name\")\noigusaktid_urlid=merge(oigusaktid_urlid, \n                       andmedLai[,cols], by.x=\"service_id\", by.y=\"identifier\")\n\n#table(oigusaktid_urlid$response)\nerroridSeadused=oigusaktid_urlid[grep('error', oigusaktid_urlid$response),]\n\n#paneme kahest kokku raporti\nvigasedKoond=erroridSeadused[, c(\"service_id\", \"name\", \"url\", \"provider.name\", \"provider.memberOf.name\",\"title\")]\nvigasedKoond$veaKirjeldus=\"vigane viide regulatsioonile\"\n\nvigasedKanalid=erroritega[, c(\"identifier\", \"name\", \"url\", \"provider.name\", \"provider.memberOf.name\")]\nvigasedKanalid$title=\"pole\"\nvigasedKanalid$veaKirjeldus=\"vigane viide kanalile\"\ncolumn_names=c(\"service_id\", \"name\", \"url\", \"provider.name\", \"provider.memberOf.name\",\"title\", \"veaKirjeldus\")\ncolnames(vigasedKanalid)=column_names\n\n#muudame col nimed ja salvestame\nvigasedKoond=rbind(vigasedKanalid, vigasedKoond)\nnames(vigasedKoond)=c(\"teenused_id\", \"teenuse_nimi\", \"vigane_url\", \"asutus\", \n                      \"haldusala\",\"õigusakti_pealkiri (olemasolul)\", \"vea_kirjeldus\")\nwrite.table(vigasedKoond, \"vigased_koond.csv\", sep=\";\", row.names = F)\n\n#salvestame iga haldusala lõikes, esmalt teeme funktsiooni\nsalvestaja=function(andmed, grupeerija, kaust) {\n  if(!kaust%in%dir()) {\n    dir.create(kaust) \n  }\n  invisible(lapply(unique(grupeerija), \n                   function(i) write.table(andmed[grupeerija==i,], \n                                           file = paste0(\"./\",kaust, \"/vigased_\",gsub(\" \",\"_\",i), \".csv\"), \n                                           sep=\";\", row.names = FALSE)))\n  cat(\"salvestatud\")\n}\n#salvestame\nsalvestaja(vigasedKoond, vigasedKoond$haldusala,\"haldusalade_loikes\")\n#asutuste lõikes\nsalvestaja(vigasedKoond, vigasedKoond$asutus,\"asutuste_loikes\")\n\n\n\n",
+    "created" : 1494501579381.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2693913634",
+    "id" : "37B5D8F8",
+    "lastKnownWriteTime" : 1494837465,
+    "last_content_update" : 1494837465110,
+    "path" : "~/R_asjad/R/riigiteenuste_URL_kontrollija/urli_kontrollija.R",
+    "project_path" : "urli_kontrollija.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

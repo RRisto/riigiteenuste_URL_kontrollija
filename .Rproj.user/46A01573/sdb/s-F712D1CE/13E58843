@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1494589876911.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "13E58843",
+    "lastKnownWriteTime" : 7308604914264011873,
+    "last_content_update" : 1494589876911,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "3427FCA5",
+        "caption" : "vigasedKoond",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=vigasedKoond&cache_key=3427FCA5",
+        "displayedObservations" : "214",
+        "environment" : "",
+        "object" : "vigasedKoond",
+        "preview" : "0",
+        "totalObservations" : "214",
+        "variables" : "7"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

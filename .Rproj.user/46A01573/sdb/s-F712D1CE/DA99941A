@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "##Lihtne URLi kontrollija\n\nMõeldud urlide kontrollimiseks: kas teenuste kanalite ja õigusaktide urlid saavad vastuse.\nKorjab kokku urlid, mis saavad errori. Lisaks koostab neist tabeli ja salvestab (koondina kui ka haldusalade ja asutuste lõikes). Kui ei viitsi ükshaaval koodi läbi jooksutada, pane fail urli_kontrollija.R tööle (võtab aega, kuna url, mida kontrollida on arvestatavas koguses).",
+    "created" : 1494837865690.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1247795807",
+    "id" : "DA99941A",
+    "lastKnownWriteTime" : 1494838047,
+    "last_content_update" : 1494838047178,
+    "path" : "~/R_asjad/R/riigiteenuste_URL_kontrollija/readme.Rmd",
+    "project_path" : "readme.Rmd",
+    "properties" : {
+        "chunk_output_type" : "inline",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

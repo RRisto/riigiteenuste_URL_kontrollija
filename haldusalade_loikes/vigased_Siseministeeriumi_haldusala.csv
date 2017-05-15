@@ -1,0 +1,8 @@
+"teenused_id";"teenuse_nimi";"vigane_url";"asutus";"haldusala";"õigusakti_pealkiri (olemasolul)";"vea_kirjeldus"
+"SIM-003";"Siseministeeriumi dokumendiregistrist andmete vaatamine";"http://adr.siseministeerium.ee/sisemin/";"Siseministeerium";"Siseministeeriumi haldusala";"pole";"vigane viide kanalile"
+"RES-203";"Ehitusvaldkonna inspektori vastuvõtu broneerimine";"http://broneering.päästeamet.ee/";"Päästeamet";"Siseministeeriumi haldusala";"pole";"vigane viide kanalile"
+"SIM-002";"Eesti poolt isikule kehtestatud sissesõidukeelu kehtivuse kontrollimine";"https://vana.siseministeerium.ee/17115/";"Siseministeerium";"Siseministeeriumi haldusala";"pole";"vigane viide kanalile"
+"RES-101";"Interaktiivne kodu tuleohutuse test";"https://www.kodutuleohutuks.ee/";"Päästeamet";"Siseministeeriumi haldusala";"pole";"vigane viide kanalile"
+"PPA-031";"Teabenõude/selgitustaotluse/märgukirja esitamine Politsei- ja Piirivalveametile";"https://www.politsei.ee/et/teenused/e-teenused/index.dot";"Politsei- ja Piirivalveamet";"Siseministeeriumi haldusala";"pole";"vigane viide kanalile"
+"SISE-002";"Eesti tudengitele haridusasutustesse sisseastumise infosüsteem (SAIS)";"https://www.sais.ee/avalik/kes_et.html";"Sisekaitseakadeemia";"Siseministeeriumi haldusala";"pole";"vigane viide kanalile"
+"SISE-002";"Eesti tudengitele haridusasutustesse sisseastumise infosüsteem (SAIS)";"https://www.sais.ee/avalik/kes_et.html";"Sisekaitseakadeemia";"Siseministeeriumi haldusala";"";"vigane viide regulatsioonile"
